@@ -1805,6 +1805,148 @@
           transform: none;
         }
       }
+    
+      /* ---------- education: achievements & certificates ---------- */
+      .achv {
+        margin-top: 24px;
+        display: grid;
+        gap: 24px;
+      }
+      .achv-block {
+        background: rgba(255, 255, 255, 0.14);
+        border-radius: 20px;
+        padding: 24px;
+      }
+      .achv-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      }
+      .achv-head h3 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: clamp(22px, 3vw, 30px);
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+      .achv-head span {
+        font-size: 12px;
+        opacity: 0.9;
+      }
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .cert-grid.five {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .cert {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        background: #fff;
+        color: var(--ink);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.25s, box-shadow 0.25s;
+      }
+      .cert:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+      }
+      .cert-thumb {
+        position: relative;
+        display: block;
+        aspect-ratio: 16 / 9;
+        background: #e9e6dc;
+        overflow: hidden;
+      }
+      .cert-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+      }
+      .cert:hover .cert-thumb img {
+        transform: scale(1.05);
+      }
+      .cert-badge {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        background: var(--accent);
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 3px 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      }
+      .cert-view {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 18px 8px 8px;
+        background: linear-gradient(transparent, rgba(37, 39, 43, 0.78));
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      .cert:hover .cert-view,
+      .cert:focus-visible .cert-view {
+        opacity: 1;
+      }
+      .cert-body {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 12px 14px 14px;
+      }
+      .cert-name {
+        font-weight: 700;
+        font-size: 13.5px;
+        line-height: 1.25;
+      }
+      .cert-meta {
+        font-size: 12px;
+        opacity: 0.75;
+        line-height: 1.35;
+      }
+      @media (max-width: 1100px) {
+        .cert-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cert-grid.five {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 700px) {
+        .achv-block {
+          padding: 18px;
+        }
+        .cert-grid,
+        .cert-grid.five {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (hover: none) {
+        .cert-view {
+          opacity: 1;
+        }
+      }
     </style>
   </head>
 
@@ -2389,6 +2531,124 @@
                     <li>and more</li>
                   </ul>
                 </aside>
+              </div>
+
+              <div class="achv">
+                <div class="achv-block">
+                  <div class="achv-head">
+                    <h3>Achievements</h3>
+                    <span>Competition awards &amp; finalist titles</span>
+                  </div>
+                  <div class="cert-grid">
+                    <button class="cert" type="button" data-caption="2nd Place, ICT Scientific Paper Competition (KTI TIK), Electrical Engineering Student Festival (FESMARO) 2024, Faculty of Engineering, Universitas Negeri Malang">
+                      <span class="cert-thumb">
+                        <img src="fesmaro.jpeg" alt="Certificate: ICT Scientific Paper Competition (KTI TIK)" loading="lazy" />
+                        <span class="cert-badge">2nd Place</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">ICT Scientific Paper Competition (KTI TIK)</span>
+                        <span class="cert-meta">FESMARO 2024 · Faculty of Engineering, Universitas Negeri Malang</span>
+                      </span>
+                    </button>
+                    <button class="cert" type="button" data-caption="2nd Place, Essay Competition, Gebyar Jurnalis Muda (GJM) 2024, Universitas Siliwangi">
+                      <span class="cert-thumb">
+                        <img src="gjm.jpeg" alt="Certificate: Essay Competition" loading="lazy" />
+                        <span class="cert-badge">2nd Place</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">Essay Competition</span>
+                        <span class="cert-meta">Gebyar Jurnalis Muda (GJM) 2024 · Universitas Siliwangi</span>
+                      </span>
+                    </button>
+                    <button class="cert" type="button" data-caption="Finalist, Essay Competition, Festival Agri-Science Technology (FAST) 2024, Universitas Sebelas Maret">
+                      <span class="cert-thumb">
+                        <img src="fast.jpeg" alt="Certificate: Essay Competition" loading="lazy" />
+                        <span class="cert-badge">Finalist</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">Essay Competition</span>
+                        <span class="cert-meta">Festival Agri-Science Technology (FAST) 2024 · Universitas Sebelas Maret</span>
+                      </span>
+                    </button>
+                    <button class="cert" type="button" data-caption="Finalist, National UI/UX Design Competition, Universitas Nahdlatul Ulama Surabaya">
+                      <span class="cert-thumb">
+                        <img src="uiux.png" alt="Certificate: National UI/UX Design Competition" loading="lazy" />
+                        <span class="cert-badge">Finalist</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">National UI/UX Design Competition</span>
+                        <span class="cert-meta">Universitas Nahdlatul Ulama Surabaya</span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div class="achv-block">
+                  <div class="achv-head">
+                    <h3>Certificates</h3>
+                    <span>Language, networking &amp; data analytics training</span>
+                  </div>
+                  <div class="cert-grid five">
+                    <button class="cert" type="button" data-caption="English Proficiency Test (EPT), Balai Bahasa dan Budaya, Universitas Negeri Malang, 2022 (score: 454)">
+                      <span class="cert-thumb">
+                        <img src="ukbing.jpg" alt="Certificate: English Proficiency Test (EPT)" loading="lazy" />
+                        <span class="cert-badge">2022</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">English Proficiency Test (EPT)</span>
+                        <span class="cert-meta">Balai Bahasa dan Budaya, Universitas Negeri Malang · Score 454</span>
+                      </span>
+                    </button>
+                    <button class="cert" type="button" data-caption="IT Essentials, Cisco Networking Academy, 2024">
+                      <span class="cert-thumb">
+                        <img src="cisco.jpeg" alt="Certificate: IT Essentials" loading="lazy" />
+                        <span class="cert-badge">2024</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">IT Essentials</span>
+                        <span class="cert-meta">Cisco Networking Academy</span>
+                      </span>
+                    </button>
+                    <button class="cert" type="button" data-caption="AI Agent for Data Analysis course, IBM SkillsBuild University Education Program">
+                      <span class="cert-thumb">
+                        <img src="hacktiv.jpg" alt="Certificate: AI Agent for Data Analysis" loading="lazy" />
+                        <span class="cert-badge">Course</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">AI Agent for Data Analysis</span>
+                        <span class="cert-meta">IBM SkillsBuild University Education Program</span>
+                      </span>
+                    </button>
+                    <button class="cert" type="button" data-caption="Data Analyst Bootcamp, SpecialSkill">
+                      <span class="cert-thumb">
+                        <img src="specialskill.jpg" alt="Certificate: Data Analyst Bootcamp" loading="lazy" />
+                        <span class="cert-badge">Bootcamp</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">Data Analyst Bootcamp</span>
+                        <span class="cert-meta">SpecialSkill</span>
+                      </span>
+                    </button>
+                    <button class="cert" type="button" data-caption="Intro to Data Analytics mini course, RevoU">
+                      <span class="cert-thumb">
+                        <img src="revou.jpg" alt="Certificate: Intro to Data Analytics Mini Course" loading="lazy" />
+                        <span class="cert-badge">Course</span>
+                        <span class="cert-view"><svg class="sv" aria-hidden="true"><use href="#i-ext" /></svg> View certificate</span>
+                      </span>
+                      <span class="cert-body">
+                        <span class="cert-name">Intro to Data Analytics Mini Course</span>
+                        <span class="cert-meta">RevoU</span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -3488,6 +3748,26 @@
         stage.addEventListener("mouseleave", () =>
           chips.forEach((c, i) => (c.style.transform = "")),
         );
+      })();
+    </script>
+      <script>
+      /* education: open certificate images in the existing lightbox */
+      (function () {
+        var lb = document.getElementById("lightbox");
+        if (!lb) return;
+        document.querySelectorAll(".cert").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var img = b.querySelector("img");
+            var big = document.getElementById("lbImg");
+            var cap = document.getElementById("lbCap");
+            var x = document.getElementById("lbClose");
+            big.src = img.getAttribute("src");
+            big.alt = img.alt;
+            cap.textContent = b.getAttribute("data-caption") || img.alt;
+            lb.classList.add("open");
+            if (x) x.focus();
+          });
+        });
       })();
     </script>
   </body>
